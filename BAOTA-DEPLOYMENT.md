@@ -27,19 +27,19 @@
 ```bash
 # SSH 连接到服务器
 cd /www/wwwroot
-git clone https://github.com/qblyf/todos.git
-cd todos
+git clone https://github.com/qblyf/todos.git todos.ipoo.fun
+cd todos.ipoo.fun
 ```
 
 #### 方法二：文件管理器上传
 1. 宝塔面板 → 文件 → 进入 `/www/wwwroot`
-2. 新建文件夹 `todos`
+2. 新建文件夹 `todos.ipoo.fun`
 3. 上传项目文件到该文件夹
 
 ### 3. 安装依赖和构建
 
 ```bash
-cd /www/wwwroot/todos
+cd /www/wwwroot/todos.ipoo.fun
 
 # 安装依赖
 npm install
@@ -51,7 +51,7 @@ npm run build
 mkdir -p logs
 
 # 设置权限
-chown -R www:www /www/wwwroot/todos
+chown -R www:www /www/wwwroot/todos.ipoo.fun
 ```
 
 ### 4. 配置环境变量
@@ -124,8 +124,8 @@ pm2 startup
 
 1. **添加站点**
    - 宝塔面板 → 网站 → 添加站点
-   - 域名：`date-mc.ipoo.fun` (你的域名)
-   - 根目录：`/www/wwwroot/todos/frontend`
+   - 域名：`todos.ipoo.fun` (你的域名)
+   - 根目录：`/www/wwwroot/todos.ipoo.fun/frontend`
 
 2. **修改 Nginx 配置**
    - 点击站点设置 → 配置文件
@@ -134,10 +134,10 @@ pm2 startup
 ```nginx
 server {
     listen 80;
-    server_name date-mc.ipoo.fun;
+    server_name todos.ipoo.fun;
     
     # 前端静态文件目录
-    root /www/wwwroot/todos/frontend;
+    root /www/wwwroot/todos.ipoo.fun/frontend;
     index index.html;
     
     # 前端路由
@@ -166,8 +166,8 @@ server {
     }
     
     # 日志
-    access_log /www/wwwroot/todos/logs/access.log;
-    error_log /www/wwwroot/todos/logs/error.log;
+    access_log /www/wwwroot/todos.ipoo.fun/logs/access.log;
+    error_log /www/wwwroot/todos.ipoo.fun/logs/error.log;
     
     # 安全配置
     location ~ /\. {
@@ -256,7 +256,7 @@ curl http://localhost:3000/api/todos
 当你更新代码后：
 
 ```bash
-cd /www/wwwroot/todos
+cd /www/wwwroot/todos.ipoo.fun
 
 # 拉取最新代码
 git pull origin main
@@ -278,10 +278,10 @@ pm2 restart todo-app
 pm2 logs todo-app
 
 # Nginx 访问日志
-tail -f /www/wwwroot/todos/logs/access.log
+tail -f /www/wwwroot/todos.ipoo.fun/logs/access.log
 
 # Nginx 错误日志
-tail -f /www/wwwroot/todos/logs/error.log
+tail -f /www/wwwroot/todos.ipoo.fun/logs/error.log
 ```
 
 ### 性能监控
@@ -297,8 +297,8 @@ htop
 
 ## ✅ 验证部署
 
-1. **访问网站：** `http://date-mc.ipoo.fun`
-2. **测试 API：** `http://date-mc.ipoo.fun/api/todos`
+1. **访问网站：** `http://todos.ipoo.fun`
+2. **测试 API：** `http://todos.ipoo.fun/api/todos`
 3. **检查功能：** 添加、编辑、删除待办事项
 
 部署成功后，你的 Todo 应用就可以在线访问了！

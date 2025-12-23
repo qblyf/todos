@@ -1,6 +1,7 @@
 import { Todo, CreateTodoRequest, UpdateTodoRequest, ApiResponse } from '../types/todo.js';
 
-const API_BASE_URL = 'http://localhost:3000/api';
+// 使用相对路径，这样在开发和生产环境都能正常工作
+const API_BASE_URL = '/api';
 
 class ApiClient {
   private async request<T>(
