@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>待办事项管理</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e'
+                        },
+                        success: {
+                            50: '#f0fdf4',
+                            500: '#22c55e',
+                            600: '#16a34a'
+                        },
+                        danger: {
+                            50: '#fef2f2',
+                            500: '#ef4444',
+                            600: '#dc2626'
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.3s ease-in-out',
+                        'slide-up': 'slideUp 0.3s ease-out',
+                        'bounce-in': 'bounceIn 0.5s ease-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(10px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        bounceIn: {
+                            '0%': { transform: 'scale(0.3)', opacity: '0' },
+                            '50%': { transform: 'scale(1.05)' },
+                            '70%': { transform: 'scale(0.9)' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div id="app" class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- 头部 -->
+        <header class="text-center mb-8 animate-fade-in">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">📝 待办事项管理</h1>
+            <p class="text-gray-600 text-lg">简单高效的任务管理工具</p>
+        </header>
+        
+        <!-- 统计信息 -->
+        <div id="stats-section" class="mb-8 animate-slide-up">
+            <!-- 统计卡片将通过 JavaScript 动态生成 -->
+        </div>
+        
+        <!-- 主要内容区域 -->
+        <main id="todo-app" class="bg-white rounded-2xl shadow-xl p-6 animate-slide-up">
+            <!-- 添加任务表单 -->
+            <div id="todo-form-section" class="mb-8">
+                <!-- 表单将通过 JavaScript 动态生成 -->
+            </div>
+            
+            <!-- 任务列表 -->
+            <div id="todo-list-section">
+                <!-- 初始加载状态 -->
+                <div id="loading-state" class="text-center py-12">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500 mx-auto mb-4"></div>
+                    <p class="text-gray-600 text-lg">加载中...</p>
+                </div>
+                
+                <!-- 错误状态 -->
+                <div id="error-state" class="hidden text-center py-12">
+                    <div class="text-danger-500 text-6xl mb-4">⚠️</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">出现错误</h3>
+                    <p id="error-message" class="text-gray-600 mb-4"></p>
+                    <button id="retry-button" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg transition-colors">
+                        重试
+                    </button>
+                </div>
+                
+                <!-- 空状态 -->
+                <div id="empty-state" class="hidden text-center py-12">
+                    <div class="text-gray-400 text-6xl mb-4">📋</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">暂无待办事项</h3>
+                    <p class="text-gray-600">添加您的第一个任务开始使用吧！</p>
+                </div>
+                
+                <!-- 任务列表容器 -->
+                <div id="todos-container" class="space-y-3">
+                    <!-- 任务项将通过 JavaScript 动态生成 -->
+                </div>
+            </div>
+        </main>
+        
+        <!-- 页脚 -->
+        <footer class="text-center mt-8 text-gray-500">
+            <p>&copy; 2024 待办事项管理系统 - 让生活更有条理</p>
+        </footer>
+    </div>
+
+    <!-- 通知容器 -->
+    <div id="notifications" class="fixed top-4 right-4 z-50 space-y-2">
+        <!-- 通知将通过 JavaScript 动态生成 -->
+    </div>
+
+    <!-- TypeScript 模块 -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
