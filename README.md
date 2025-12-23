@@ -6,7 +6,7 @@
 
 - **前端**: HTML5 + Tailwind CSS + TypeScript
 - **后端**: Node.js + Express + TypeScript
-- **数据库**: PostgreSQL
+- **数据库**: SQLite (开发) / PostgreSQL (生产)
 - **测试**: Jest + fast-check (属性测试)
 
 ## 功能特性
@@ -24,7 +24,6 @@
 ### 环境要求
 
 - Node.js 18+
-- PostgreSQL 15+
 - npm 或 yarn
 
 ### 安装依赖
@@ -44,16 +43,7 @@ cp .env.example .env
 
 ### 数据库设置
 
-1. 确保PostgreSQL已安装并运行
-2. 创建数据库和表：
-```bash
-npm run db:setup
-```
-
-或者手动执行：
-```bash
-psql -U postgres -f scripts/setup-database.sql
-```
+项目默认使用SQLite数据库，无需额外配置。首次运行时会自动创建数据库和表。
 
 ### 运行应用
 
