@@ -21,7 +21,9 @@ export interface DatabaseConfig {
   database: string;
   user: string;
   password: string;
-  ssl?: boolean;
+  ssl?: boolean | {
+    rejectUnauthorized: boolean;
+  };
 }
 
 export interface ErrorResponse {
